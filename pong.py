@@ -30,14 +30,31 @@ paddle_two.goto(290, 0)
 
 # Ball
 
-ball = turtle.Turtle()
-ball.speed(0)
-ball.shape("square")
-ball.color("white")
-ball.penup()
-ball.goto(0, 0)
+pong = turtle.Turtle()
+pong.speed(0)
+pong.shape("square")
+pong.color("white")
+pong.penup()
+pong.goto(0, 0)
 
+# Functionality
 
+def paddle_one_up():
+    y = paddle_one.ycor()
+    y += 20
+    paddle_one.sety(y)
+
+def paddle_one_dwn():
+    y = paddle_one.ycor()
+    y -= 20
+    paddle_one.sety(y)
+
+# Keyboard Binding
+
+win.listen()
+win.onkeypress(paddle_one_up, "w")
+win.onkeypress(paddle_one_dwn, "s")
 # Main Loop
 while True:
     win.update()
+
